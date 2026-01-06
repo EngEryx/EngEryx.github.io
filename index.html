@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eric Kirima - Technology Entrepreneur & Founder of Eryx Labs. Building scalable systems for visionary enterprises across Africa.">
+    <meta name="keywords" content="Eric Kirima, Software Engineer, Technology Entrepreneur, Eryx Labs, Kenya, Africa Tech">
+    <meta name="author" content="Eric Kirima">
+    <title>Eric Kirima - Technology Entrepreneur</title>
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://engeryx.github.io/">
+    <meta property="og:title" content="Eric Kirima - Technology Entrepreneur">
+    <meta property="og:description" content="Founder of Eryx Labs. Building scalable systems for visionary enterprises across Africa.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6c757d;
+            --accent: #000000;
+            --border: #e9ecef;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #0a0a0a;
+                --bg-secondary: #1a1a1a;
+                --text-primary: #ffffff;
+                --text-secondary: #a0a0a0;
+                --accent: #ffffff;
+                --border: #2a2a2a;
+                --shadow: rgba(255, 255, 255, 0.05);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav {
+                background: rgba(10, 10, 10, 0.9);
+            }
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--bg-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-live {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .status-live {
+                background: #1e4620;
+                color: #7dff88;
+            }
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            color: var(--text-secondary);
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 5rem;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Eric Kirima</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Building Scalable Systems for Africa</h1>
+            <p class="subtitle">
+                Technology Entrepreneur & Founder of <a href="https://eryxlabs.co.ke" style="color: var(--accent); text-decoration: none;">Eryx Labs</a>. 
+                Creating mission-critical software solutions that power enterprises across East Africa.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://eryxlabs.co.ke" class="btn btn-primary">View Eryx Labs</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Turning complex challenges into elegant solutions</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm Eric Kirima, a technology entrepreneur based in Nairobi, Kenya. As the founder of 
+                        <strong>Eryx Labs</strong>, I lead a team that builds enterprise-grade software solutions 
+                        for African businesses.
+                    </p>
+                    <p>
+                        Our work spans ERP systems, blockchain infrastructure, network security, and IoT solutions. 
+                        We've delivered 50+ projects for organizations like Kenya Flower Council, TLP Clinic, and 
+                        various enterprises across the region.
+                    </p>
+                    <p>
+                        I believe in building technology that's not just functional, but transformative—systems that 
+                        scale with businesses and adapt to Africa's unique market demands.
+                    </p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Active Products</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime SLA</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products/Work Section -->
+    <section id="work">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <p class="section-subtitle">Some of the solutions we've built at Eryx Labs</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="status-badge status-live">Live</span>
+                    <div class="product-icon">P</div>
+                    <h3>Ping Africa</h3>
+                    <p>Enterprise VPN and network security solution optimized for African infrastructure. Zero-trust architecture with 99.9% uptime.</p>
+                    <div class="product-tags">
+                        <span class="tag">Security</span>
+                        <span class="tag">VPN</span>
+                        <span class="tag">Enterprise</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <span class="status-badge status-live">Live</span>
+                    <div class="product-icon">M</div>
+                    <h3>Micronet</h3>
+                    <p>Complete ISP management platform with billing automation, bandwidth control, and customer portal.</p>
+                    <div class="product-tags">
+                        <span class="tag">ISP</span>
+                        <span class="tag">Billing</span>
+                        <span class="tag">SaaS</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <span class="status-badge status-live">Live</span>
+                    <div class="product-icon">S</div>
+                    <h3>SourceDoc</h3>
+                    <p>Document management platform with AI-powered search and collaboration tools.</p>
+                    <div class="product-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Documents</span>
+                        <span class="tag">Collaboration</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <span class="status-badge status-live">Live</span>
+                    <div class="product-icon">E</div>
+                    <h3>Efimart</h3>
+                    <p>E-commerce and POS solution for African retail businesses with inventory management.</p>
+                    <div class="product-tags">
+                        <span class="tag">E-commerce</span>
+                        <span class="tag">POS</span>
+                        <span class="tag">Retail</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">F</div>
+                    <h3>Forg</h3>
+                    <p>Cross-platform clipboard and file sync. Copy on your phone, paste on your desktop.</p>
+                    <div class="product-tags">
+                        <span class="tag">Productivity</span>
+                        <span class="tag">Cross-platform</span>
+                        <span class="tag">Privacy</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">N</div>
+                    <h3>Netos</h3>
+                    <p>Network monitoring and management with real-time visibility and intelligent alerts.</p>
+                    <div class="product-tags">
+                        <span class="tag">Monitoring</span>
+                        <span class="tag">Network</span>
+                        <span class="tag">Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Expertise</h2>
+            <p class="section-subtitle">Technologies and domains I work with</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🚀 Development</h3>
+                    <ul class="skill-list">
+                        <li>Laravel & PHP</li>
+                        <li>Django & Python</li>
+                        <li>Go & Rust</li>
+                        <li>React & TypeScript</li>
+                        <li>Node.js</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>☁️ Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li>AWS & GCP</li>
+                        <li>Docker & Kubernetes</li>
+                        <li>Terraform</li>
+                        <li>DevOps & CI/CD</li>
+                        <li>Network Architecture</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🔗 Blockchain</h3>
+                    <ul class="skill-list">
+                        <li>Solidity</li>
+                        <li>Smart Contracts</li>
+                        <li>Web3 Integration</li>
+                        <li>DeFi Applications</li>
+                        <li>Rust (Solana)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🤖 AI & Automation</h3>
+                    <ul class="skill-list">
+                        <li>Machine Learning</li>
+                        <li>LLM Integration</li>
+                        <li>Process Automation</li>
+                        <li>AI Agents</li>
+                        <li>TensorFlow</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Build Something</h2>
+            <div class="contact-content">
+                <p class="section-subtitle">
+                    Whether you're looking to build an enterprise system, need technical consulting, 
+                    or want to discuss a project—I'd love to hear from you.
+                </p>
+                
+                <div class="contact-links">
+                    <a href="mailto:info@eryxlabs.co.ke" class="contact-link">
+                        📧 info@eryxlabs.co.ke
+                    </a>
+                    <a href="https://wa.me/254743169027" class="contact-link" target="_blank">
+                        💬 WhatsApp
+                    </a>
+                    <a href="https://github.com/EngEryx" class="contact-link" target="_blank">
+                        💻 GitHub
+                    </a>
+                    <a href="https://linkedin.com/company/eryxlabs" class="contact-link" target="_blank">
+                        🔗 LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Eric Kirima. Built with purpose.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
