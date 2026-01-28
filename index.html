@@ -31,16 +31,14 @@
             --shadow: rgba(0, 0, 0, 0.05);
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-primary: #0a0a0a;
-                --bg-secondary: #1a1a1a;
-                --text-primary: #ffffff;
-                --text-secondary: #a0a0a0;
-                --accent: #ffffff;
-                --border: #2a2a2a;
-                --shadow: rgba(255, 255, 255, 0.05);
-            }
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #ffffff;
+            --border: #2a2a2a;
+            --shadow: rgba(255, 255, 255, 0.05);
         }
 
         body {
@@ -69,10 +67,8 @@
             background: rgba(255, 255, 255, 0.9);
         }
 
-        @media (prefers-color-scheme: dark) {
-            nav {
-                background: rgba(10, 10, 10, 0.9);
-            }
+        [data-theme="dark"] nav {
+            background: rgba(10, 10, 10, 0.9);
         }
 
         nav .container {
@@ -80,6 +76,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
+            gap: 2rem;
         }
 
         nav .logo {
@@ -104,6 +101,40 @@
 
         nav a:hover {
             color: var(--accent);
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle .icon-sun {
+            display: none;
+        }
+
+        .theme-toggle .icon-moon {
+            display: block;
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-sun {
+            display: block;
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-moon {
+            display: none;
         }
 
         /* Hero Section */
@@ -323,11 +354,9 @@
             color: #155724;
         }
 
-        @media (prefers-color-scheme: dark) {
-            .status-live {
-                background: #1e4620;
-                color: #7dff88;
-            }
+        [data-theme="dark"] .status-live {
+            background: #1e4620;
+            color: #7dff88;
         }
 
         /* Skills Section */
@@ -458,6 +487,10 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
+            </button>
         </div>
     </nav>
 
@@ -702,6 +735,32 @@
     </footer>
 
     <script>
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved preference, otherwise use system preference
+        function getPreferredTheme() {
+            const saved = localStorage.getItem('theme');
+            if (saved) return saved;
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        // Apply theme
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        // Initialize theme
+        setTheme(getPreferredTheme());
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
