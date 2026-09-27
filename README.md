@@ -15,11 +15,11 @@ This is my personal GitHub Pages site showcasing my work in technology entrepren
 
 ## Featured Work
 
-- **Ping Africa** - Enterprise VPN solution
-- **Micronet** - ISP management platform
-- **SourceDoc** - AI-powered document management
-- **Efimart** - E-commerce & POS system
-- And more...
+- **NetOS** - ISP billing and network management ([micronet.africa](https://micronet.africa))
+- **WalletX** - Mobile money platform
+- **SourceDoc** - Document intelligence
+- **AI Agents** - Voice and chat agents, Swahili TTS
+- Client work: Truth Wireless, Swift Ace, EfiMart, Ping Africa and more
 
 ## Contact
 
